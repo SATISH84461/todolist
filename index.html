@@ -7,55 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Document</title>
-    <style>
-        h1 {
-            margin: 0 0 5% 0;
-        }
-
-        body {
-            margin: 5%;
-            text-align: center;
-            background-color: rgb(120, 172, 255);
-        }
-
-        #content {
-            text-align: center;
-        }
-
-        input[type="text"],
-        button {
-            padding: 1.1em 2em;
-        }
-
-        #button {
-            background-color: white;
-            color: black;
-        }
-
-        #button:hover {
-            background-color: rgb(120, 172, 255);
-            color: white;
-            border: 0;
-        }
-
-        p {
-            position: relative;
-            margin: 0;
-            padding: 1% 3%;
-            text-align: left;
-        }
-
-        #btn {
-            position: absolute;
-            right: 5%;
-            color: black;
-        }
-
-        #task {
-            background-color: white;
-        }
-    </style>
 </head>
 
 <body>
@@ -71,60 +25,4 @@
     </div>
     </div>
 </body>
-<script>
-    var num = localStorage.getItem('num');
-    if (num == null) {
-        num = -1;
-        localStorage.setItem('num', num);
-    }
-    var x = document.getElementById("task");
-    var y = document.getElementById("button");
-    y.onclick = function () {
-        var z = document.getElementById("input_task");
-        var a = document.createElement('p');
-        if (z.value != "") {
-            a.innerHTML = z.value + '<button type="button" class="btn btn-danger" id="btn">Remove</button>';
-            x.appendChild(a);
-            x.style.padding = "0 0 1% 0";
-            num++;
-            localStorage.setItem(num, z.value);
-            localStorage.setItem('num', num);
-        }
-        else {
-            alert("Enter Your Task");
-        }
-    }
-    document.addEventListener("click", function () {
-        if (num != -1) {
-            var b = document.getElementsByTagName("button");
-            for (i = 0; i < b.length; i++) {
-                b[i].onclick = function () {
-                    var p = this.parentElement;
-                    localStorage.removeItem(num);
-                    num--;
-                    localStorage.setItem('num', num);
-                    if (num == -1) {
-                        h = b[0].parentElement.parentElement;
-                        h.innerHTML = null;
-                        h.style.padding = 0;
-                    }
-                    p.innerHTML = null;
-                    p.style.padding = 0;
-                }
-            }
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        i = 0;
-        while (localStorage.getItem(i) != null) {
-            var a = document.createElement('p');
-            var l = localStorage.getItem(i);
-            a.innerHTML = l + '<button type="button" class="btn btn-danger" id="btn">Remove</button>';
-            x.appendChild(a);
-            x.style.padding = "0 0 1% 0";
-            i++;
-        }
-    });
-</script>
-
 </html>
