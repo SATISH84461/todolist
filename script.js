@@ -41,15 +41,15 @@ var num = localStorage.getItem('num');
             }
         }
     });
-    document.addEventListener("DOMContentLoaded", function () {
-        i = 0;
-        while (localStorage.getItem(i) != null) {
-            var a = document.createElement('p');
-            var l = localStorage.getItem(i);
-            a.innerHTML = l + '<button type="button" class="btn btn-danger" id="btn">Remove</button>';
-            x.appendChild(a);
-            x.style.padding = "0 0 1% 0";
-            i++;
-        }
-    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    i = 0;
+    while (localStorage.getItem(i) != null) {
+        var a = document.createElement('p');
+        var l = localStorage.getItem(i);
+        a.innerHTML = l + '<button type="button" class="btn btn-danger" id="btn">Remove</button>';
+        x.appendChild(a);
+        x.style.padding = "0 0 1% 0";
+        i++;
+    }
 });
