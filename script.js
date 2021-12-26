@@ -41,8 +41,6 @@ var num = localStorage.getItem('num');
             }
         }
     });
-});
-document.addEventListener("DOMContentLoaded", function () {
     var x = document.getElementById("task");
     i = 0;
     while (localStorage.getItem(i) != null) {
